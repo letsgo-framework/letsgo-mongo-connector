@@ -29,7 +29,7 @@ var DB *mongo.Database
 // Instance of mongo Client
 var Client *mongo.Client
 
-// Connects to DB with given env variables and returns DB, CLIENT
+// Connects to DB with given env variables and returns Client, DB
 func Connect() (*mongo.Client, *mongo.Database) {
 	dbURL := os.Getenv("DATABASE_URL")
 	if dbURL == "" {
@@ -52,7 +52,7 @@ func Connect() (*mongo.Client, *mongo.Database) {
 }
 
 
-// Connects to DB with given env variables and returns DB, CLIENT for TESTING
+// Connects to DB with given env variables and returns Client, DB for TESTING
 func TestConnect() (*mongo.Client, *mongo.Database) {
 	err := godotenv.Load("../.env.testing")
 	dbURL := os.Getenv("DATABASE_URL")
